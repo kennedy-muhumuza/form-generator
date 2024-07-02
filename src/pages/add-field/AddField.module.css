@@ -1,0 +1,149 @@
+.add-field-container {
+}
+
+.input-field {
+  margin-top: 0.5rem;
+  outline: none;
+  width: 25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: inherit;
+  border: 0;
+  border-bottom: 2px solid var(--color-grey-300);
+}
+
+.input-field:focus {
+  border-bottom: 2px solid var(--color-grey-400);
+}
+
+.field-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-container label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.clear-prompt {
+  color: var(--btn-bg-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-prompt:hover {
+  text-decoration: underline;
+}
+
+.add-form-btn {
+  font-size: inherit;
+  width: 10rem;
+  margin-top: 1rem;
+  font-family: inherit;
+  background-color: var(--btn-bg-color);
+  border: 0;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.label-checkbox {
+  width: 10%;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.labels-header {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8rem;
+  justify-content: center;
+}
+
+.labels-header h1 {
+  font-weight: 600;
+}
+.arrow-icon {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.labels-nav-bar {
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+.labels-nav-bar-forms {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.labels-nav-bar-container {
+  display: flex;
+}
+
+.labels-title {
+  opacity: 0.9;
+  margin-top: 1.5rem;
+}
+
+.add-option-btn {
+  margin-top: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: var(--btn-bg-color);
+  border: 0;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+}
+
+.delete-btn {
+  background-color: rgb(75, 5, 5);
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  color: var(--color-grey-100);
+  border-radius: 0.2rem;
+  margin-left: 0.3rem;
+}
+.filter-types-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-types-container select {
+  cursor: pointer;
+}
+
+.filter-select {
+  outline: none;
+  font-size: 1rem;
+  padding: 0.7rem 0.4rem;
+  font-family: inherit;
+  color: var(--color-grey-700);
+  width: 10rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--color-grey-300);
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-select select:active,
+.filter-select select:focus {
+  outline: none;
+  box-shadow: none;
+}

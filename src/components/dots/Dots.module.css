@@ -1,0 +1,17 @@
+.dots-container {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+
+.dots-container span {
+  background-color: var(--btn-color);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
