@@ -2,7 +2,7 @@ import { MultipleChoice } from "../../components/form-sections/MultipleChoice";
 import { SubmitButton } from "../../components/form-sections/SubmitButton";
 import styles from "./GeneratedForm.module.css";
 import { formData } from "../../data/form-data";
-import { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from 'react'
 
 
 interface Field{
@@ -26,23 +26,45 @@ interface Props {
   const [fields, setFields]=useState<Field[]>(formData[0].fields)
 
 
-  return (
-    <form className={styles["generated-form-container"]}> 
-      {/* <PageTitle /> */}
+  const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault(); 
+    
+  };
+  return ( 
+    <form className={styles["generated-form-container"]} onSubmit={handleSubmit}> 
+      {!true ? 
       <div className={styles["page-title-container"]}>
       <h1 className={styles["page-title-heading"]}>{title}</h1>
       <p>
         {description}
       </p>
-    </div>
-      {fields.map((item) => (<div key={item.fieldId}>
+    </div>: 
       <div className={styles["page-title-container"]}>
+        
+        <input
+        type="text"
+        value={title}
+        onChange={handleTitleChange}
+        className={styles["input-title-heading"]}
+      />
+      {/* <h1 className={styles["page-title-heading"]}>{title}</h1> */}
+      <p>
+        {description}
+      </p>
+    </div>
+      }
+      {fields.map((item) => (<div key={item.fieldId} className={styles["field-input-container"]}>
+      
       <h1 className={styles["page-title-heading"]}>{item.question}</h1>
       <p>
         All the submissions of this form will be appended in a table for review.
       </p>
     </div>        
-    </div>))
+    ))
       }
 
       <div className={styles["field-input-container"]}>
@@ -56,7 +78,7 @@ interface Props {
             className={styles["input-field"]}
           />
         )}
-        {!true && (
+        {true && (
           <span className={styles["checkbox-container"]}>
             <input
               type="checkbox"
@@ -66,14 +88,14 @@ interface Props {
             <p>Yes</p>
           </span>
         )}
-        {!true && (
+        {true && (
           <textarea
             placeholder="Type your message"
             className={styles["text-area"]}
             required
           ></textarea>
         )}
-        {!true && (
+        {true && (
           <select
             className={styles["select-tag"]}
             // value={field.type}
@@ -89,3 +111,4 @@ interface Props {
     </form>
   );
 };
+ 

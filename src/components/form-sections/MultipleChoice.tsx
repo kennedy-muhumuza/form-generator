@@ -15,7 +15,7 @@ export const MultipleChoice: React.FC = () => {
     console.log("option", option);
   };
 
-  return (
+  return ( 
     <div className={styles["form-container"]}>
       <h3 className={styles["multiple-choice-title"]}>MultipleChoice</h3>
       <div className={styles["multiple-choice-container"]}>
