@@ -52,7 +52,7 @@ export const Dashboard: React.FC = () => {
             Search
           </button>
         </form>
-        <Link to="create-form" className={styles["add-field-link"]}>
+        <Link to="/create-form" className={styles["add-field-link"]}>
           <button className={styles["generate-btn"]}>Create form</button>
         </Link>
 

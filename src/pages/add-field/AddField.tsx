@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./AddField.module.css";
-import { NewField } from "../../components/new-field/NewField";
+// import { NewField } from "../../components/new-field/NewField";
 
 export const AddField = () => {
   //   const [activeTab, setActiveTab] = useState<string>("table");
@@ -109,7 +109,7 @@ export const AddField = () => {
         </div>
         <div className={styles["field-container"]}>
           <label>Multiple choice</label>
-          <NewField />
+          {/* <NewField /> */}
           {/* <button
             className={styles["add-option-btn"]}
             onClick={handleAddNewField}

@@ -10,11 +10,11 @@ export const FormGrid = () => {
     createdBy: string;
     link: string;
   }
-
+ 
   const formData: FormAttributes[] = formAttributes;
-
+ 
   return (
-    <div className={styles["grid-container"]}>
+    <div className={styles["grid-container"]}> 
       {formData.map((item) => (
         <div key={item.link} className={styles["grid-item"]}>
           <div className={styles["grid-header"]}>
