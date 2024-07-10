@@ -25,9 +25,12 @@
   border-bottom: 2px solid var(--color-grey-300);
 }
 
+.input-title-heading{
+  
+}
 .input-field:focus {
   border-bottom: 2px solid var(--color-grey-400);
-}
+} 
 
 .label-title {
   font-weight: 600;

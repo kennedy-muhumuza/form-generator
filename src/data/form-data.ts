@@ -1,11 +1,19 @@
+function generateFormId() {
+  return Math.floor(Math.random() * 10000000);
+}
+
+function generateFieldId() {
+  return Math.floor(Math.random() * 100000);
+}
+
 export const formData = [
   {
-    id: 3435,
+    id: generateFormId(),
     formTitle: "Form title",
     formDescription: "Form description",
     fields: [
       {
-        fieldId: 5445,
+        fieldId: generateFieldId(),
         question: "Question",
         status: "short answer",
         required: true,

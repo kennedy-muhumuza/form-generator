@@ -4,9 +4,12 @@ import { AppLayout } from "./pages/applayout/AppLayout";
 import { HomePage } from "./pages/homepage/HomePage";
 import { Dashboard } from "./pages/dashboard/Dashboard";
 import { GeneratedForm } from "./pages/generated-forms/GeneratedForm";
+import { useState } from "react";
 // import { AddField } from "./pages/add-field/AddField";
 
 function App() {
+  const [activeField, setActiveField]=useState<string>("")
+
   return (
     <>
       <BrowserRouter>

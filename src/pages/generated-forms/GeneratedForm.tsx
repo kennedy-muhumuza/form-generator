@@ -24,7 +24,12 @@ interface Props {
   const [description, setDescription]=useState<string>(formData[0].formDescription)
   const [forms, setForms]=useState<Props[]>(formData)
   const [fields, setFields]=useState<Field[]>(formData[0].fields)
+  const [activeField, setActiveField]=useState<string>("")
 
+
+const handleActiveField=(field:string)=>{
+setActiveField(field)
+}
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -35,28 +40,31 @@ interface Props {
     
   };
   return ( 
-    <form className={styles["generated-form-container"]} onSubmit={handleSubmit}> 
-      {!true ? 
-      <div className={styles["page-title-container"]}>
-      <h1 className={styles["page-title-heading"]}>{title}</h1>
+    <form className={styles["generated-form-container"]} onSubmit={handleSubmit} onClick={()=>handleActiveField("")}> 
+      
+      <div className={styles["page-title-container"]} onClick={()=>handleActiveField(`title-${formData[0].id}`)}>
+        {activeField===`title-${formData[0].id}`?
+        
+      <> <h1 className={styles["page-title-heading"]}>{title}</h1>
       <p>
         {description}
-      </p>
-    </div>: 
-      <div className={styles["page-title-container"]}>
-        
-        <input
+      </p>   
+      </>: <>
+      <input
         type="text"
         value={title}
         onChange={handleTitleChange}
         className={styles["input-title-heading"]}
       />
-      {/* <h1 className={styles["page-title-heading"]}>{title}</h1> */}
+     
       <p>
         {description}
       </p>
-    </div>
-      }
+      </>}
+
+      </div>
+
+     
       {fields.map((item) => (<div key={item.fieldId} className={styles["field-input-container"]}>
       
       <h1 className={styles["page-title-heading"]}>{item.question}</h1>
@@ -72,6 +80,7 @@ interface Props {
         <p className={styles["label-description"]}>Description of the label.</p>
         {true && (
           <input
+        // name={`field-${item.fieldId}-date`}
             placeholder={`Your answer`}
             type="date"
             required
