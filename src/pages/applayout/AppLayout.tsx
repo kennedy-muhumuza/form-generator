@@ -6,7 +6,6 @@ import styles from "./AppLayout.module.css";
 import { useState } from "react";
 
 export const AppLayout = () => {
-  const [activeField, setActiveField]=useState<string>("")
 
 
   return (
