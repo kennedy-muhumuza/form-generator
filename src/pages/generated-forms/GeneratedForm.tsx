@@ -9,27 +9,18 @@ interface Field {
   status: string;
   required: boolean;
   imageUrl: string;
-  fieldId: number;
+  fieldId: string;
 }
 
 interface Props {
-  id: number;
+  id: string;
   formTitle: string;
   formDescription: string;
   fields: Field[];
 }
 
-interface Blur {
-  titleBlur: boolean;
-  descriptionBlur: boolean;
-}
 
-interface Focus {
-  titleFocus: boolean;
-  descriptionFocus: boolean;
-}
 
-// export const GeneratedForm: React.FC<Props[]> = ({id, formTitle, formDescription, fields}) => {
 export const GeneratedForm: React.FC<Props[]> = () => {
   const [title, setTitle] = useState<string>(formData[0].formTitle);
   const [description, setDescription] = useState<string>(formData[0].formDescription);

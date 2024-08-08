@@ -1,26 +1,44 @@
-function generateFormId() {
-  return Math.floor(Math.random() * 10000000);
-}
 
-function generateFieldId() {
-  return Math.floor(Math.random() * 100000);
-}
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const formData = [
   {
-    id: generateFormId(),
+    id: uuidv4(),
     formTitle: "Form title",
     formDescription: "Form description",
     fields: [
       {
-        fieldId: generateFieldId(),
+        fieldId: uuidv4(),
         question: "Question",
         status: "short answer",
         required: true,
         imageUrl: "",
-      }
+      },
+      {
+        fieldId: uuidv4(),
+        question: "Question",
+        status: "short answer",
+        required: true,
+        imageUrl: "",
+      },
+      {
+        fieldId: uuidv4(),
+        question: "Question",
+        status: "short answer",
+        required: true,
+        imageUrl: "",
+      },
+      {
+        fieldId: uuidv4(),
+        question: "Question",
+        status: "short answer",
+        required: true,
+        imageUrl: "",
+      }    
     ]
   }, 
+  
 ];
 
 
