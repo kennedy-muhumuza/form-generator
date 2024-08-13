@@ -27,11 +27,21 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const [forms, setForms] = useState<Props[]>(formData);
   const [fields, setFields] = useState<Field[]>(formData[0].fields);
   const [activeFormTitleStatus, setActiveFormTitleStatus] = useState<boolean>(true);
+  const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(true);
   
 
+  const handleFormItemStatus=(status: boolean)=>{
+    setActiveFormItemStatus(status)
+  }
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
+
+  const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>,index:number)=>{
+    const inputData = [...fields]
+    inputData[index]=eventChange.target.value;
+    setFields(inputData)
+  }
 
   const handleDescriptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
@@ -78,11 +88,34 @@ export const GeneratedForm: React.FC<Props[]> = () => {
           )}
         </div>
       </div>
-
+ 
       {fields.map((item) => (
-        <div key={item.fieldId} className={styles["field-input-container"]}>
+        <div key={item.fieldId} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false)}>
+          {activeFormItemStatus?
+          <>
           <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
           <p>Answer</p>
+          </>:
+          <>
+              <input
+                type="text"
+                value={item.question}
+    
+    onChange={()=>setTitle(event.target.value)}
+                className={styles["input-edit"]}              
+              />
+              <input
+                type="text"
+                value="answer"
+                onChange={handleDescriptionChange}
+                className={styles["input-edit"]}                
+              />
+               <div className={styles["title-btns"]}>
+                <button className={styles["cancel-btn"]}>Cancel</button>
+                <button className={styles["update-btn"]} onClick={()=>handleFormItemStatus(true)}>Update</button>
+              </div>
+          </>
+        }
         </div>
       ))}
 
