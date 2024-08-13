@@ -38,7 +38,7 @@ export const GeneratedForm: React.FC<Props[]> = () => {
     setTitle(event.target.value);
   };
 
-  const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>,index:number)=>{
+  const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>, index:number)=>{
     const inputData = [...fields]
     inputData[index].answer = eventChange.target.value;
     setFields(inputData)
@@ -89,9 +89,9 @@ export const GeneratedForm: React.FC<Props[]> = () => {
           )}
         </div>
       </div>
- 
-      {fields.map((item) => (
-        <div key={item.fieldId} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false)}>
+
+      {fields.map((item, index) => (
+        <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false)}>
           {activeFormItemStatus?
           <>
           <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
@@ -101,14 +101,13 @@ export const GeneratedForm: React.FC<Props[]> = () => {
               <input
                 type="text"
                 value={item.question}
-    
-    onChange={()=>setTitle(event.target.value)}
+                onChange={(e)=>handleFieldChange(e, index)}
                 className={styles["input-edit"]}              
               />
               <input
                 type="text"
                 value="answer"
-                onChange={handleDescriptionChange}
+                onChange={(e)=>handleFieldChange(e, index)}
                 className={styles["input-edit"]}                
               />
                <div className={styles["title-btns"]}>
