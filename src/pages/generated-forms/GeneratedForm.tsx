@@ -7,6 +7,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 interface Field {
   question: string;
   status: string;
+  answer:string;
   required: boolean;
   imageUrl: string;
   fieldId: string;
@@ -39,7 +40,7 @@ export const GeneratedForm: React.FC<Props[]> = () => {
 
   const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>,index:number)=>{
     const inputData = [...fields]
-    inputData[index]=eventChange.target.value;
+    inputData[index].answer = eventChange.target.value;
     setFields(inputData)
   }
 
