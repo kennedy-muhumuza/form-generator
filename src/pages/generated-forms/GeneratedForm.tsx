@@ -81,8 +81,8 @@ export const GeneratedForm: React.FC<Props[]> = () => {
 
       {fields.map((item) => (
         <div key={item.fieldId} className={styles["field-input-container"]}>
-          <h1 className={styles["page-title-heading"]}>{item.question}</h1>
-          <p>All the submissions of this form will be appended in a table for review.</p>
+          <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
+          <p>Answer</p>
         </div>
       ))}
 

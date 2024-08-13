@@ -133,6 +133,10 @@
   margin-bottom: 1rem;
 }
 
+.page-title-item-heading{
+  font-weight: 500;
+
+}
 .page-title-heading {
   font-weight: 400;
 }

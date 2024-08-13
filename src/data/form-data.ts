@@ -10,28 +10,28 @@ export const formData = [
     fields: [
       {
         fieldId: uuidv4(),
-        question: "Question",
+        question: "What is your level of study?",
         status: "short answer",
         required: true,
         imageUrl: "",
       },
       {
         fieldId: uuidv4(),
-        question: "Question",
+        question: "What course did you do?",
         status: "short answer",
         required: true,
         imageUrl: "",
       },
       {
         fieldId: uuidv4(),
-        question: "Question",
+        question: "Why do you want a placement at our company?",
         status: "short answer",
         required: true,
         imageUrl: "",
       },
       {
         fieldId: uuidv4(),
-        question: "Question",
+        question: "Do you have projects you've worked on lately? If so, which ones?",
         status: "short answer",
         required: true,
         imageUrl: "",
