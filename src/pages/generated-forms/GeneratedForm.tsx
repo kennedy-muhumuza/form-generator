@@ -12,7 +12,6 @@ interface Field {
   imageUrl: string;
   fieldId: string;
 }
-
 interface Props {
   id: string;
   formTitle: string;
@@ -20,27 +19,33 @@ interface Props {
   fields: Field[];
 }
 
-
-
 export const GeneratedForm: React.FC<Props[]> = () => {
   const [title, setTitle] = useState<string>(formData[0].formTitle);
   const [description, setDescription] = useState<string>(formData[0].formDescription);
   const [forms, setForms] = useState<Props[]>(formData);
   const [fields, setFields] = useState<Field[]>(formData[0].fields);
   const [activeFormTitleStatus, setActiveFormTitleStatus] = useState<boolean>(true);
-  const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(true);
-  
+  const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(false);
+  const [activeItemIndex, setActiveItemIndex]=useState<number>()
 
-  const handleFormItemStatus=(status: boolean)=>{
-    setActiveFormItemStatus(status)
+  const handleFormItemStatus=(status: boolean, index:number)=>{
+    if(activeItemIndex===index){
+      setActiveFormItemStatus(status)
+    }
   }
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
-  const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>, index:number)=>{
+  const handleFieldChange =(eventChange: ChangeEvent<HTMLInputElement>, index:number, status: string)=>{
     const inputData = [...fields]
-    inputData[index].answer = eventChange.target.value;
+    // const {question, answer} = inputData[index];
+    if(status==="question"){
+      inputData[index].question=eventChange.target.value;
+    }
+    if(status==="answer"){
+      inputData[index].answer=eventChange.target.value;
+    }
     setFields(inputData)
   }
 
@@ -91,28 +96,28 @@ export const GeneratedForm: React.FC<Props[]> = () => {
       </div>
 
       {fields.map((item, index) => (
-        <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false)}>
-          {activeFormItemStatus?
+        <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false, index)}>
+          {activeFormItemStatus && activeItemIndex===index ?
           <>
           <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
-          <p>Answer</p>
+          <p>{item.answer}</p>
           </>:
           <>
               <input
                 type="text"
                 value={item.question}
-                onChange={(e)=>handleFieldChange(e, index)}
+                onChange={(e)=>handleFieldChange(e, index, "question")}
                 className={styles["input-edit"]}              
               />
               <input
                 type="text"
-                value="answer"
-                onChange={(e)=>handleFieldChange(e, index)}
+                value={item.answer}
+                onChange={(e)=>handleFieldChange(e, index, "answer")}
                 className={styles["input-edit"]}                
               />
                <div className={styles["title-btns"]}>
                 <button className={styles["cancel-btn"]}>Cancel</button>
-                <button className={styles["update-btn"]} onClick={()=>handleFormItemStatus(true)}>Update</button>
+                <button className={styles["update-btn"]} onClick={()=>handleFormItemStatus(true,index)}>Update</button>
               </div>
           </>
         }
