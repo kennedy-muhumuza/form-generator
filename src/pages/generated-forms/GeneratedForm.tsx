@@ -25,8 +25,8 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const [forms, setForms] = useState<Props[]>(formData);
   const [fields, setFields] = useState<Field[]>(formData[0].fields);
   const [activeFormTitleStatus, setActiveFormTitleStatus] = useState<boolean>(true);
-  const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(false);
-  const [activeItemIndex, setActiveItemIndex]=useState<number>()
+  const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(true);
+  const [activeItemIndex, setActiveItemIndex] = useState<number>()
 
   const handleFormItemStatus=(status: boolean, index:number)=>{
     if(activeItemIndex===index){
@@ -96,8 +96,8 @@ export const GeneratedForm: React.FC<Props[]> = () => {
       </div>
 
       {fields.map((item, index) => (
-        <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(false, index)}>
-          {activeFormItemStatus && activeItemIndex===index ?
+        <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(true, index)}>
+          {activeFormItemStatus && (activeItemIndex===index) ?
           <>
           <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
           <p>{item.answer}</p>
