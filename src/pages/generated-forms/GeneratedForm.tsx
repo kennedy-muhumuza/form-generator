@@ -31,6 +31,7 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const handleFormItemStatus=(status: boolean, index:number)=>{
     if(activeItemIndex===index){
       setActiveFormItemStatus(status)
+      setActiveItemIndex(index)
     }
   }
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
