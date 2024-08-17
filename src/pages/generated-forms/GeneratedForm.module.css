@@ -78,7 +78,6 @@
   font-weight: 500;
   resize: none;
   min-height: 100px;
-  /* color: var(--heading-color); */
   outline: none;
   transition: 0.3s;
 }
@@ -94,7 +93,6 @@
 }
 
 .select-tag {
-  /* padding: 0.6rem 1rem; */
   font-family: inherit;
   font-size: 1rem;
   margin-top: 1rem;
@@ -110,11 +108,10 @@
 .select-tag:focus {
   outline: none;
   box-shadow: none;
-  /* background-color: green; */
+ 
 }
 
 .input-checkbox {
-  /* padding: 0.1rem 0.9rem; */
 }
 .checkbox-container {
   margin-top: 1rem;

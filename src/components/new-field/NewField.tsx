@@ -17,7 +17,7 @@ export const NewField: React.FC = () => {
     setVal(inputData);
   };
 
-  const handleDelete = (e: React.FormEvent, index) => {
+  const handleDelete = (e: React.FormEvent, index: number) => {
     e.preventDefault();
     const deleteVal = [...val];
     deleteVal.splice(index, 1);
