@@ -1,15 +1,10 @@
 import styles from "./FormGrid.module.css";
 import { formAttributes } from "../../data/form-attributes";
+import { FormAttributes } from "../../lib/types";
 // import { Dots } from "../dots/Dots";
 
 export const FormGrid = () => {
-  interface FormAttributes {
-    title: string;
-    type: string;
-    createdAt: string;
-    createdBy: string;
-    link: string;
-  }
+
  
   const formData: FormAttributes[] = formAttributes;
  

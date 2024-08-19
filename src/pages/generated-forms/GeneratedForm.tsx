@@ -3,21 +3,9 @@ import { SubmitButton } from "../../components/form-sections/SubmitButton";
 import styles from "./GeneratedForm.module.css";
 import { formData } from "../../data/form-data";
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { Props } from "../../lib/types";
+import { Field } from "../../lib/types";
 
-interface Field {
-  question: string;
-  status: string;
-  answer:string;
-  required: boolean;
-  imageUrl: string;
-  fieldId: string;
-}
-interface Props {
-  id: string;
-  formTitle: string;
-  formDescription: string;
-  fields: Field[];
-}
 
 export const GeneratedForm: React.FC<Props[]> = () => {
   const [title, setTitle] = useState<string>(formData[0].formTitle);
