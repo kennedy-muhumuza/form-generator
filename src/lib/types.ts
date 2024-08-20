@@ -21,3 +21,9 @@ export  interface FormAttributes {
     createdBy: string;
     link: string;
   }
+
+ export interface FormIdentifierProps {
+  name: string;
+  email: string;
+  age: string;
+}
