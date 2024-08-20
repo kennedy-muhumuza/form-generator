@@ -17,9 +17,9 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(true);
   const [activeItemIndex, setActiveItemIndex] = useState<number>()
   const [formIdentifier, setFormIdentifier] = useState<FormIdentifierProps>({
-  name: '',
-  email: '',
-  age: '',
+   question: '',
+   answer: '',
+  
 });
 
   const handleFormItemStatus=(status: boolean, index:number)=>{
@@ -113,14 +113,14 @@ export const GeneratedForm: React.FC<Props[]> = () => {
                 name="question"
                 type="text"
                 value={item.question}
-                onChange={(e)=>handleFieldChange(e, index, "question")}
+                onChange={(e)=>handleFieldChange(e)}
                 className={styles["input-edit"]}              
               />
               <input
                 name="answer"
                 type="text"
                 value={item.answer}
-                onChange={(e)=>handleFieldChange(e, index, "answer")}
+                onChange={(e)=>handleFieldChange(e)}
                 className={styles["input-edit"]}                
               />
                <div className={styles["title-btns"]}>

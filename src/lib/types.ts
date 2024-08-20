@@ -23,7 +23,6 @@ export  interface FormAttributes {
   }
 
  export interface FormIdentifierProps {
-  name: string;
-  email: string;
-  age: string;
+  question: string;
+  answer: string;
 }
