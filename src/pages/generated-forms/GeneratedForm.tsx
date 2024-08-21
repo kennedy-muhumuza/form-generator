@@ -19,14 +19,11 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const [formIdentifier, setFormIdentifier] = useState<FormIdentifierProps>({
    question: '',
    answer: '',
-  
 });
 
   const handleFormItemStatus=(status: boolean, index:number)=>{
-    if(activeItemIndex===index){
       setActiveFormItemStatus(status)
-      setActiveItemIndex(index)
-    }
+      setActiveItemIndex(index)  
   }
 
   
@@ -46,13 +43,22 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   //   setFields(inputData)
   // }
   
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//   const { name, value } = e.target;
+//   setFormIdentifier((prevState) => ({
+//     ...prevState,
+//     [name]: value,
+//   }));
+// };
+
+const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
   const { name, value } = e.target;
-  setFormIdentifier((prevState) => ({
-    ...prevState,
-    [name]: value,
-  }));
+  const updatedFields = fields.map((field, i) =>
+    i === index ? { ...field, [name]: value } : field
+  );
+  setFields(updatedFields);
 };
+
   const handleDescriptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
   };
@@ -103,7 +109,7 @@ export const GeneratedForm: React.FC<Props[]> = () => {
 
       {fields.map((item, index) => (
         <div key={index} className={styles["field-input-container"]} onClick={()=>handleFormItemStatus(true, index)}>
-          {activeFormItemStatus && (activeItemIndex===index) ?
+          {!activeFormItemStatus && !(activeItemIndex===index) ?
           <>
           <h3 className={styles["page-title-item-heading"]}>{item.question}</h3>
           <p>{item.answer}</p>
@@ -113,14 +119,14 @@ export const GeneratedForm: React.FC<Props[]> = () => {
                 name="question"
                 type="text"
                 value={item.question}
-                onChange={(e)=>handleFieldChange(e)}
+                onChange={(e)=>handleFieldChange(e,index)}
                 className={styles["input-edit"]}              
               />
               <input
                 name="answer"
                 type="text"
                 value={item.answer}
-                onChange={(e)=>handleFieldChange(e)}
+                onChange={(e)=>handleFieldChange(e,index)}
                 className={styles["input-edit"]}                
               />
                <div className={styles["title-btns"]}>
