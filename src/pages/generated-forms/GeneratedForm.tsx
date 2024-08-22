@@ -15,7 +15,8 @@ export const GeneratedForm: React.FC<Props[]> = () => {
   const [fields, setFields] = useState<Field[]>(formData[0].fields);
   const [activeFormTitleStatus, setActiveFormTitleStatus] = useState<boolean>(true);
   const [activeFormItemStatus, setActiveFormItemStatus] = useState<boolean>(true);
-  const [activeItemIndex, setActiveItemIndex] = useState<number>()
+  const [activeItemIndex, setActiveItemIndex] = useState<number | null>(null);
+
   const [formIdentifier, setFormIdentifier] = useState<FormIdentifierProps>({
    question: '',
    answer: '',
